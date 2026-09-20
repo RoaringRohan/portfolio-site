@@ -498,7 +498,7 @@ export const projects = [
     title: 'Honey Hills Lavender Farm',
     category: 'software',
     context: 'Freelance client project, solo',
-    date: 'Sep 2025 – Feb 2026',
+    date: 'Feb 2026',
     when: 2026.12,
     award: null,
     summary:
