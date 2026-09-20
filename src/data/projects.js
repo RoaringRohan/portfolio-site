@@ -494,6 +494,20 @@ export const projects = [
     links: { github: 'https://github.com/RoaringRohan/demokritos' },
   },
   {
+    id: 'honey-hills-lavender-farm',
+    title: 'Honey Hills Lavender Farm',
+    category: 'software',
+    context: 'Freelance client project, solo',
+    date: 'Sep 2025 – Feb 2026',
+    when: 2026.12,
+    award: null,
+    summary:
+      "A small lavender farm and beekeeping operation needed a storefront that could sell its honey, essential oil blends, hand-poured candles, lavender sprays and floral arrangements online, and also explain why it exists: the farm runs on about 1,000 lavender plants and a couple of beehives, and puts bee conservation at the centre of the brand. Built end to end for the client on Squarespace: the visual design and layout, all of the copy, and the site's structure of shop with cart, the farm's story, lavender growing, honey bee education and a contact page, with the physical Saturday market presence carried through alongside the online shop.",
+    pipeline: null,
+    tech: ['Squarespace', 'E-commerce', 'UI Design', 'Copywriting'],
+    links: { demo: 'https://www.honeyhills.ca/' },
+  },
+  {
     id: 'geoalarm',
     title: 'GeoAlarm',
     category: 'software',

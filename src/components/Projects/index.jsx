@@ -71,6 +71,11 @@ const ProjectEntry = ({ project, section }) => {
                         Devpost &rarr;
                     </a>
                 )}
+                {project.links?.demo && (
+                    <a href={project.links.demo} target="_blank" rel="noopener noreferrer" className="entry-link">
+                        Visit site &rarr;
+                    </a>
+                )}
                 {project.links?.github && (
                     <a href={project.links.github} target="_blank" rel="noopener noreferrer" className="entry-link">
                         View source &rarr;
