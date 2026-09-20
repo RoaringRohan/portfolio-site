@@ -1,0 +1,150 @@
+.work {
+    max-width: var(--content-max);
+    margin: 0 auto;
+    padding: calc(var(--nav-h) + var(--space-lg)) var(--space-md) var(--space-lg);
+
+    .work-masthead {
+        padding-bottom: var(--space-md);
+        border-bottom: 2px solid var(--color-ink);
+
+        h1 {
+            margin: var(--space-xs) 0 0;
+            font-size: var(--text-2xl);
+            font-weight: 650;
+            letter-spacing: -0.02em;
+            line-height: 1;
+        }
+    }
+
+    // The branch line: entries hang off a single vertical rule
+    .commit-log {
+        position: relative;
+        margin-top: var(--space-lg);
+        padding-left: var(--space-md);
+        border-left: 2px solid var(--color-ink);
+        display: flex;
+        flex-direction: column;
+        gap: var(--space-lg);
+    }
+
+    .commit-entry {
+        position: relative;
+        max-width: 44rem;
+
+        // Commit node on the branch line
+        .commit-marker {
+            position: absolute;
+            top: 0.3rem;
+            left: calc(-1 * var(--space-md) - 7px);
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            border: 2px solid var(--color-ink);
+            background: var(--color-bg);
+        }
+
+        .commit-line {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            flex-wrap: wrap;
+            margin: 0 0 var(--space-xs);
+            font-family: var(--font-mono);
+            font-size: var(--text-xs);
+
+            .commit-hash {
+                color: var(--color-ink-soft);
+                letter-spacing: 0.06em;
+            }
+
+            .commit-branch {
+                color: var(--color-accent);
+                font-weight: 600;
+
+                &::before {
+                    content: '(';
+                    color: var(--color-ink-soft);
+                }
+
+                &::after {
+                    content: ')';
+                    color: var(--color-ink-soft);
+                }
+            }
+
+            .commit-head {
+                padding: 0.1em 0.55em;
+                border: 1px solid var(--color-ink);
+                border-radius: 2px;
+                background: var(--color-ink);
+                color: var(--color-bg);
+                font-weight: 600;
+                letter-spacing: 0.1em;
+            }
+        }
+
+        .commit-role {
+            margin: 0;
+            font-size: var(--text-lg);
+            font-weight: 600;
+            letter-spacing: -0.01em;
+        }
+
+        .commit-meta {
+            margin: 0.35rem 0 0;
+            font-family: var(--font-mono);
+            font-size: var(--text-xs);
+            color: var(--color-ink-soft);
+            letter-spacing: 0.03em;
+        }
+
+        .commit-link {
+            color: var(--color-ink);
+            text-decoration: none;
+            border-bottom: 1px solid var(--color-ink);
+
+            &:hover {
+                color: var(--color-accent);
+                border-color: var(--color-accent);
+            }
+        }
+
+        .commit-summary {
+            margin: var(--space-sm) 0;
+            font-size: var(--text-base);
+            line-height: 1.65;
+        }
+
+        // Highlights styled like added lines in a diff
+        .commit-diff {
+            margin: 0 0 var(--space-sm);
+            padding: 0;
+            list-style: none;
+
+            li {
+                display: flex;
+                gap: 0.6rem;
+                padding: 0.3rem 0;
+                font-size: var(--text-sm);
+                line-height: 1.55;
+                color: var(--color-ink-soft);
+
+                .diff-plus {
+                    font-family: var(--font-mono);
+                    font-weight: 600;
+                    color: var(--color-ink);
+                    flex-shrink: 0;
+                }
+            }
+        }
+
+        .commit-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+    }
+}

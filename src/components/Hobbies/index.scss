@@ -1,0 +1,113 @@
+.hobbies {
+    max-width: var(--content-max);
+    margin: 0 auto;
+    padding: calc(var(--nav-h) + var(--space-lg)) var(--space-md) var(--space-lg);
+
+    .hobbies-masthead {
+        padding-bottom: var(--space-md);
+        border-bottom: 2px solid var(--color-ink);
+
+        h1 {
+            margin: var(--space-xs) 0 0;
+            font-size: var(--text-2xl);
+            font-weight: 650;
+            letter-spacing: -0.02em;
+            line-height: 1;
+        }
+    }
+
+    // Editorial spread: left rail for the hobby name, right column for the story
+    .hobby-section {
+        display: grid;
+        grid-template-columns: minmax(11rem, 16rem) 1fr;
+        gap: var(--space-lg);
+        padding: var(--space-lg) 0;
+        border-bottom: 1px solid var(--color-line);
+
+        &:last-child {
+            border-bottom: none;
+        }
+
+        .hobby-title {
+            margin: var(--space-xs) 0 0;
+            font-size: var(--text-lg);
+            font-weight: 600;
+            letter-spacing: -0.01em;
+            line-height: 1.1;
+        }
+
+        .hobby-summary {
+            max-width: 40rem;
+            margin: 0 0 var(--space-md);
+            font-size: var(--text-base);
+            font-weight: 400;
+            line-height: 1.65;
+        }
+
+        // Data grid of quick facts
+        .hobby-stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(min(9rem, 100%), 1fr));
+            margin: 0 0 var(--space-md);
+            padding: 0;
+            border-top: 1px solid var(--color-line);
+            border-left: 1px solid var(--color-line);
+
+            .stat {
+                padding: var(--space-sm);
+                border-right: 1px solid var(--color-line);
+                border-bottom: 1px solid var(--color-line);
+
+                dt {
+                    margin-bottom: 0.35rem;
+                }
+
+                dd {
+                    margin: 0;
+                    font-family: var(--font-mono);
+                    font-size: var(--text-base);
+                    font-weight: 600;
+                }
+            }
+        }
+
+        .hobby-detail {
+            max-width: 40rem;
+            margin-bottom: var(--space-md);
+
+            h3 {
+                margin: 0 0 var(--space-xs);
+                font-size: var(--text-base);
+                font-weight: 600;
+            }
+
+            p {
+                margin: 0;
+                font-size: var(--text-base);
+                line-height: 1.65;
+                color: var(--color-ink-soft);
+            }
+        }
+
+        .hobby-links a {
+            font-family: var(--font-mono);
+            font-size: var(--text-sm);
+            color: var(--color-ink);
+            text-decoration: none;
+            border-bottom: 1px solid var(--color-ink);
+            margin-right: var(--space-sm);
+
+            &:hover {
+                color: var(--color-accent);
+                border-color: var(--color-accent);
+            }
+        }
+    }
+
+    @media only screen and (max-width: 700px) {
+        .hobby-section {
+            grid-template-columns: 1fr;
+            gap: var(--space-md);
+        }
+    }
+}

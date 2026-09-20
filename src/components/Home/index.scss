@@ -1,0 +1,91 @@
+.home {
+    .home-page {
+        max-width: var(--content-max);
+        margin: 0 auto;
+        padding: calc(var(--nav-h) + var(--space-lg)) var(--space-md) 0;
+
+        .hero {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: var(--space-lg);
+
+            .text-zone {
+                max-width: 38rem;
+
+                .mono-label {
+                    margin-bottom: var(--space-sm);
+                }
+            }
+
+            h1 {
+                margin: 0;
+                font-size: var(--text-hero);
+                font-weight: 650;
+                line-height: 1;
+                letter-spacing: -0.02em;
+            }
+
+            h2 {
+                margin: var(--space-sm) 0 0;
+                font-size: var(--text-lg);
+                font-weight: 400;
+                letter-spacing: 0.04em;
+                color: var(--color-ink-soft);
+            }
+
+            .hero-meta {
+                margin-top: var(--space-md);
+                font-family: var(--font-mono);
+                font-size: var(--text-sm);
+                line-height: 1.7;
+                color: var(--color-ink-soft);
+            }
+
+            .hero-certs {
+                display: flex;
+                flex-wrap: wrap;
+                gap: var(--space-xs, 0.5rem);
+                margin: var(--space-md) 0 0;
+                padding: 0;
+                list-style: none;
+
+                a {
+                    display: inline-flex;
+                    align-items: center;
+                    gap: 0.4em;
+                    padding: 0.3em 0.6em;
+                    border: 1px solid var(--color-rule, currentColor);
+                    border-radius: 3px;
+                    font-family: var(--font-mono);
+                    font-size: var(--text-xs, 0.75rem);
+                    letter-spacing: 0.04em;
+                    color: var(--color-ink-soft);
+                    text-decoration: none;
+
+                    &:hover,
+                    &:focus-visible {
+                        color: var(--color-ink);
+                        border-color: currentColor;
+                    }
+                }
+            }
+
+            .portrait {
+                position: relative;
+                width: clamp(220px, 28vw, 400px);
+                height: clamp(220px, 28vw, 400px);
+                flex-shrink: 0;
+            }
+        }
+
+        @media only screen and (max-width: 700px) {
+            .hero {
+                flex-direction: column-reverse;
+                align-items: flex-start;
+                min-height: auto;
+                gap: var(--space-md);
+            }
+        }
+    }
+}

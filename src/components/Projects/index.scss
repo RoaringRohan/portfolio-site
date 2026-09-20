@@ -1,0 +1,358 @@
+.projects-page {
+    max-width: var(--content-max);
+    margin: 0 auto;
+    padding: calc(var(--nav-h) + var(--space-lg)) var(--space-md) var(--space-lg);
+
+    .projects-masthead {
+        padding-bottom: var(--space-md);
+        border-bottom: 2px solid var(--color-ink);
+
+        h1 {
+            margin: var(--space-xs) 0 0;
+            font-size: var(--text-2xl);
+            font-weight: 650;
+            letter-spacing: -0.02em;
+            line-height: 1;
+        }
+
+        .projects-note {
+            max-width: 34rem;
+            margin: var(--space-sm) 0 0;
+            font-size: var(--text-base);
+            color: var(--color-ink-soft);
+        }
+    }
+
+    .track-filter {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.5rem;
+        margin-top: var(--space-lg);
+    }
+
+    .track-pill {
+        display: inline-block;
+        font-family: var(--font-mono);
+        font-size: var(--text-xs);
+        font-weight: 500;
+        letter-spacing: 0.02em;
+        padding: 0.35em 0.9em;
+        border: 1px solid var(--color-line);
+        border-radius: 2px;
+        background: var(--color-tag-bg);
+        color: var(--color-ink-soft);
+        cursor: pointer;
+
+        &:hover {
+            border-color: var(--color-ink);
+            color: var(--color-ink);
+        }
+
+        &.active {
+            border-color: var(--color-accent);
+            background: var(--color-accent);
+            color: var(--color-bg);
+        }
+    }
+
+    .signal-trace {
+        margin-top: var(--space-sm);
+    }
+
+    .track-pill--reset {
+        background: none;
+        border-color: transparent;
+    }
+
+    // Idle landing state: pick a channel before anything renders
+    .track-chooser {
+        margin-top: var(--space-lg);
+
+        .chooser-prompt {
+            color: var(--color-ink-soft);
+        }
+
+        .chooser-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr));
+            gap: var(--space-sm);
+            margin-top: var(--space-sm);
+        }
+
+        .chooser-card {
+            display: flex;
+            flex-direction: column;
+            gap: 0.35rem;
+            text-align: left;
+            padding: var(--space-sm);
+            border: 1px solid var(--color-line);
+            background: var(--color-tag-bg);
+            cursor: pointer;
+
+            .chooser-index {
+                color: var(--color-ink-soft);
+            }
+
+            .chooser-label {
+                font-size: var(--text-lg);
+                font-weight: 650;
+                letter-spacing: -0.01em;
+            }
+
+            .chooser-blurb {
+                font-size: var(--text-sm);
+                color: var(--color-ink-soft);
+            }
+
+            .channel-preview {
+                width: 100%;
+                height: auto;
+                margin-top: auto;
+                padding-top: var(--space-sm);
+
+                .channel-line {
+                    fill: none;
+                    stroke: var(--color-ink-soft);
+                    stroke-width: 1.5;
+                    stroke-linejoin: miter;
+                }
+            }
+
+            .chooser-count {
+                color: var(--color-ink-soft);
+            }
+
+            &:hover,
+            &:focus-visible {
+                border-color: var(--color-accent);
+
+                .channel-line {
+                    stroke: var(--color-accent);
+                }
+
+                .chooser-count {
+                    color: var(--color-accent);
+                }
+            }
+        }
+
+        .chooser-all {
+            margin-top: var(--space-sm);
+            padding: 0;
+            border: none;
+            background: none;
+            color: var(--color-ink-soft);
+            text-decoration: underline;
+            text-underline-offset: 3px;
+            cursor: pointer;
+
+            &:hover {
+                color: var(--color-accent);
+            }
+        }
+    }
+
+    // Category = editorial spread: fixed left rail, flowing entries on the right
+    .project-category {
+        display: grid;
+        grid-template-columns: minmax(11rem, 16rem) 1fr;
+        gap: var(--space-lg);
+        padding: var(--space-lg) 0;
+        border-bottom: 1px solid var(--color-line);
+
+        &:last-child {
+            border-bottom: none;
+        }
+
+        .category-rail {
+            .category-index {
+                display: block;
+                font-size: var(--text-sm);
+            }
+
+            .category-title {
+                margin: var(--space-xs) 0;
+                font-size: var(--text-xl);
+                font-weight: 600;
+                letter-spacing: -0.01em;
+                line-height: 1.1;
+            }
+
+            .category-blurb {
+                margin: 0;
+                font-size: var(--text-sm);
+                line-height: 1.6;
+                color: var(--color-ink-soft);
+            }
+        }
+
+        .category-entries {
+            display: flex;
+            flex-direction: column;
+            gap: var(--space-lg);
+        }
+    }
+
+    .project-entry {
+        scroll-margin-top: var(--space-xl);
+
+        .entry-header {
+            display: flex;
+            align-items: baseline;
+            justify-content: space-between;
+            gap: var(--space-sm);
+            flex-wrap: wrap;
+        }
+
+        .entry-title {
+            margin: 0;
+            font-size: var(--text-lg);
+            font-weight: 600;
+            letter-spacing: -0.01em;
+        }
+
+        .entry-award {
+            margin: 0.25rem 0 0;
+            font-family: var(--font-mono);
+            font-size: var(--text-xs);
+            font-weight: 600;
+            letter-spacing: 0.06em;
+            text-transform: uppercase;
+            color: var(--color-accent);
+        }
+
+        .entry-context {
+            white-space: nowrap;
+        }
+
+        // Sprint duration + secondary-track badges. Sits under context/date,
+        // never inside it, so a long badge list can never push the title row.
+        .entry-badges {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.4rem;
+            width: 100%;
+            margin: 0.4rem 0 0;
+            padding: 0;
+            list-style: none;
+        }
+
+        .entry-badge {
+            display: inline-block;
+            font-family: var(--font-mono);
+            font-size: var(--text-xs);
+            font-weight: 500;
+            letter-spacing: 0.02em;
+            padding: 0.2em 0.6em;
+            border-radius: 2px;
+            white-space: nowrap;
+        }
+
+        .entry-badge--sprint {
+            border: 1px solid var(--color-accent);
+            color: var(--color-accent);
+        }
+
+        .entry-badge--track {
+            border: 1px dashed var(--color-line);
+            color: var(--color-ink-soft);
+        }
+
+        .entry-summary {
+            max-width: 40rem;
+            margin: var(--space-sm) 0;
+            font-size: var(--text-base);
+            line-height: 1.65;
+        }
+
+        // Hardware-to-software integration flow
+        .entry-pipeline {
+            display: flex;
+            align-items: center;
+            gap: var(--space-sm);
+            flex-wrap: wrap;
+            margin: var(--space-sm) 0;
+            padding: var(--space-sm);
+            border-left: 2px solid var(--color-ink);
+            background: var(--color-tag-bg);
+
+            .pipeline-stages {
+                display: flex;
+                align-items: center;
+                gap: 0.6rem;
+                flex-wrap: wrap;
+            }
+
+            .pipeline-stage {
+                font-family: var(--font-mono);
+                font-size: var(--text-xs);
+                font-weight: 500;
+            }
+
+            .pipeline-arrow {
+                font-family: var(--font-mono);
+                color: var(--color-ink-soft);
+            }
+        }
+
+        // Screenshot row - only rendered for projects that have images
+        .entry-shots {
+            display: flex;
+            flex-wrap: wrap;
+            gap: var(--space-sm);
+            margin: var(--space-sm) 0;
+        }
+
+        .entry-shot {
+            flex: 1 1 18rem;
+            min-width: 0;
+            max-width: 100%;
+            height: auto;
+            border: 1px solid var(--color-ink);
+        }
+
+        .entry-footer {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: var(--space-sm);
+            flex-wrap: wrap;
+            margin-top: var(--space-sm);
+        }
+
+        .entry-links {
+            display: flex;
+            align-items: center;
+            gap: var(--space-sm);
+        }
+
+        .entry-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+
+        .entry-link {
+            font-family: var(--font-mono);
+            font-size: var(--text-sm);
+            color: var(--color-ink);
+            text-decoration: none;
+            border-bottom: 1px solid var(--color-ink);
+
+            &:hover {
+                color: var(--color-accent);
+                border-color: var(--color-accent);
+            }
+        }
+    }
+
+    @media only screen and (max-width: 700px) {
+        .project-category {
+            grid-template-columns: 1fr;
+            gap: var(--space-md);
+        }
+    }
+}

@@ -1,0 +1,61 @@
+.container {
+  .footer {
+    max-width: var(--content-max);
+    margin: 0 auto;
+    padding: var(--space-lg) var(--space-md);
+    position: relative;
+
+    /* Hairline rule, aligned to the same gutters as page content */
+    &::before {
+      content: "";
+      display: block;
+      position: absolute;
+      top: 0;
+      left: var(--space-md);
+      right: var(--space-md);
+      height: 1px;
+      background-color: var(--color-line);
+    }
+
+    h2 {
+      margin: 0;
+      line-height: 1.15;
+      font-size: var(--text-xl);
+      font-family: var(--font-sans);
+      font-weight: 600;
+      letter-spacing: -0.01em;
+    }
+
+    .footer-content {
+      font-size: var(--text-sm);
+      margin: 0;
+      text-align: right; /* Align the entire content to the right */
+
+      .footer-icons {
+        list-style: none;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: flex-end;
+        gap: var(--space-sm);
+        margin: var(--space-sm) 0 0;
+        padding: 0;
+
+        a {
+          display: block;
+          color: var(--color-ink-soft);
+          transition: color 0.2s ease;
+
+          &:hover {
+            color: var(--color-accent);
+          }
+        }
+
+        svg {
+          width: 20px;
+          height: 20px;
+        }
+      }
+    }
+  }
+}
