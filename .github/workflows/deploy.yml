@@ -27,6 +27,16 @@ jobs:
       - run: npm run build
       # SPA fallback so client-side routes work on refresh
       - run: cp build/index.html build/404.html
+      # Real 200 responses for known routes: Pages serves /projects from projects.html.
+      # A new top-level route in src/App.jsx needs adding to this list.
+      - run: |
+          for r in work projects about blog hobbies; do cp build/index.html "build/$r.html"; done
+          mkdir -p build/blog
+          for f in src/content/posts/*.md; do
+            [ -e "$f" ] || continue
+            slug=$(basename "$f" .md | sed -E 's/^[0-9]{4}-[0-9]{2}-//')
+            cp build/index.html "build/blog/$slug.html"
+          done
       - uses: actions/upload-pages-artifact@v3
         with:
           path: build
