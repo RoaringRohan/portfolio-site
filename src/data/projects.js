@@ -23,8 +23,9 @@
 //   pipeline  optional array of strings describing the integration pipeline,
 //             rendered as a hardware-to-software flow (stage by stage)
 //   tech      array of tech-stack tags (rendered in monospace)
-//   images    optional array of { src, alt } — imported PNGs, rendered as a
-//             screenshot row. Omit for projects with no runnable UI.
+//   images    optional array of { src, alt, tall? } — imported PNGs, rendered as a
+//             screenshot row. Omit for projects with no runnable UI. Set
+//             tall: true on a portrait shot so it spans two grid rows.
 //   links     optional { github, demo, devpost } URLs
 
 import Tms1 from '../assets/images/ticket-management-system-1.png';
@@ -181,8 +182,8 @@ export const projects = [
     tech: ['Arduino Mega', 'C/C++', 'Bare-metal ARM', 'Cyclone V', 'PWM', 'EEPROM'],
     images: [
       { src: Awf1, alt: 'CAD model of the fountain body, water wheel and basin in a 3D modelling tool.' },
-      { src: Awf2, alt: 'The 3D-printed fountain body and water wheel assembled.' },
-      { src: Awf3, alt: 'Breadboard with the microphone, transistor and motor wired to an Arduino.' },
+      { src: Awf2, alt: 'The 3D-printed fountain body and water wheel assembled.', tall: true },
+      { src: Awf3, alt: 'Breadboard with the microphone, transistor and motor wired to an Arduino.', tall: true },
       { src: Awf4, alt: 'The full bench setup running, with the laptop and instruments alongside.' },
     ],
     links: { github: 'https://github.com/RoaringRohan/automated-water-fountain' },

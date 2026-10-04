@@ -54,7 +54,7 @@ const ProjectEntry = ({ project, section }) => {
         {project.images?.length > 0 && (
             <div className="entry-shots">
                 {project.images.map((shot) => (
-                    <img key={shot.src} className="entry-shot" src={shot.src} alt={shot.alt} loading="lazy" />
+                    <img key={shot.src} className={`entry-shot${shot.tall ? ' entry-shot--tall' : ''}`} src={shot.src} alt={shot.alt} loading="lazy" />
                 ))}
             </div>
         )}
