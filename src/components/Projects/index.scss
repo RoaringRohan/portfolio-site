@@ -152,11 +152,11 @@
         }
     }
 
-    // Category = editorial spread: fixed left rail, flowing entries on the right
+    // Category = heading row above full-width entries
     .project-category {
         display: grid;
-        grid-template-columns: minmax(11rem, 16rem) 1fr;
-        gap: var(--space-lg);
+        grid-template-columns: 1fr;
+        gap: var(--space-md);
         padding: var(--space-lg) 0;
         border-bottom: 1px solid var(--color-line);
 
@@ -165,13 +165,19 @@
         }
 
         .category-rail {
+            display: flex;
+            align-items: baseline;
+            flex-wrap: wrap;
+            column-gap: var(--space-sm);
+            padding-bottom: var(--space-sm);
+            border-bottom: 1px solid var(--color-line);
+
             .category-index {
-                display: block;
                 font-size: var(--text-sm);
             }
 
             .category-title {
-                margin: var(--space-xs) 0;
+                margin: 0;
                 font-size: var(--text-xl);
                 font-weight: 600;
                 letter-spacing: -0.01em;
@@ -296,19 +302,26 @@
         }
 
         // Screenshot row - only rendered for projects that have images
+        // Grid cells, top-aligned: each shot keeps its own aspect ratio
+        // instead of being stretched to the tallest image in its row.
         .entry-shots {
-            display: flex;
-            flex-wrap: wrap;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(18rem, 1fr));
+            align-items: start;
             gap: var(--space-sm);
             margin: var(--space-sm) 0;
         }
 
         .entry-shot {
-            flex: 1 1 18rem;
-            min-width: 0;
-            max-width: 100%;
+            display: block;
+            width: 100%;
             height: auto;
             border: 1px solid var(--color-ink);
+
+            // A lone shot would otherwise span the whole column
+            &:only-child {
+                max-width: 40rem;
+            }
         }
 
         .entry-footer {
@@ -349,10 +362,4 @@
         }
     }
 
-    @media only screen and (max-width: 700px) {
-        .project-category {
-            grid-template-columns: 1fr;
-            gap: var(--space-md);
-        }
-    }
 }
