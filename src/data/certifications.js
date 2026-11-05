@@ -17,6 +17,11 @@ export const certifications = [
     url: 'https://learn.microsoft.com/en-us/users/rohandatta-7729/credentials/ee49d11c8ae07115',
   },
   {
+    code: 'DP-750',
+    name: 'Microsoft Certified: Azure Databricks Data Engineer Associate',
+    url: 'https://learn.microsoft.com/en-us/users/rohandatta-2217/credentials/d32255098dccf9ca',
+  },
+  {
     code: 'DP-900',
     name: 'Microsoft Certified: Azure Data Fundamentals',
     url: 'https://learn.microsoft.com/en-us/users/rohandatta-7729/credentials/c46037863f040375',
