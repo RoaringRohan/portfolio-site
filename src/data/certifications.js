@@ -7,6 +7,11 @@
 
 export const certifications = [
   {
+    code: 'AZ-305',
+    name: 'Microsoft Certified: Azure Solutions Architect Expert',
+    url: 'https://learn.microsoft.com/en-us/users/rohandatta-7729/credentials/84452418197cd3a5',
+  },
+  {
     code: 'AZ-104',
     name: 'Microsoft Certified: Azure Administrator Associate',
     url: 'https://learn.microsoft.com/en-us/users/rohandatta-7729/credentials/f045506838e62f12',
